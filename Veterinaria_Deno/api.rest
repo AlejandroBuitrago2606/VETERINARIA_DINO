@@ -1,0 +1,85 @@
+GET http://localhost:8000/cliente
+
+###
+GET http://localhost:8000/cliente/con-mascotas/4
+
+
+###
+POST http://localhost:8000/cliente
+Content-Type: application/json
+
+{
+      "nombre": "Nestor Javier",
+      "apellido": "Riaño Nossa",
+      "email": "haruto.tsukasa@soy.sena.edu.co",
+      "telefono": "3209297401"
+}
+ 
+ 
+###
+PUT  http://localhost:8000/cliente
+Content-Type: application/json
+
+{
+
+      "idcliente": 14,
+      "nombre": "Gustavo Andres",
+      "apellido": "Aranguren Gonzalez",
+      "email": "gustavo.andres@soy.sena.edu.co",
+      "telefono": "3456576879"
+}
+
+###
+DELETE http://localhost:8000/cliente
+Content-Type: application/json
+
+{
+    "idcliente": 14
+}
+
+
+
+
+
+
+
+
+###
+GET http://localhost:8000/mascotas
+
+###
+POST http://localhost:8000/mascotas
+Content-Type: application/json
+
+{
+
+      "nombre": "Copito",
+      "especie": "Canino",
+      "raza": "Chitzu",
+      "edad": 6,
+      "idcliente": 4
+}
+
+###
+PUT  http://localhost:8000/mascotas
+Content-Type: application/json
+
+{
+
+      "idmascota": 11,
+      "nombre": "Mila",
+      "especie": "Gata",
+      "raza": "Pequeña",
+      "edad": 5,
+      "idcliente": 2
+
+}
+
+###
+DELETE http://localhost:8000/mascotas
+Content-Type: application/json
+
+{
+    "idmascota": 12
+}
+ 
