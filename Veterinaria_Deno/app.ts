@@ -3,6 +3,7 @@ import { Application, oakCors } from "./Dependencies/dependencias.ts";
 import { send} from "https://deno.land/x/oak@v17.1.4/mod.ts";
 import { routerCliente } from "./Routes/ClienteRouter.ts";
 import { routerMascotas } from "./Routes/MascotasRouter.ts";
+import { routerProductos } from "./Routes/ProductoRouter.ts";
 
 const app = new Application();
 

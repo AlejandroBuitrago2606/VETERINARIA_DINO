@@ -84,3 +84,163 @@ Content-Type: application/json
     "idmascota": 12
 }
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+GET http://localhost:8000/productos
+###
+POST http://localhost:8000/productos
+Content-Type: application/json
+
+{   
+    "cantidad": 10,
+    "descripcion": "Collar de cuero para perros grandes",
+    "precio": 25000,
+    "unidadmedida": "Und",
+    "categoria": "Accesorios"
+}
+###
+PUT  http://localhost:8000/productos
+Content-Type: application/json
+
+{
+    "idproducto": 5,
+    "cantidad": 15,
+    "descripcion": "Collar de cuero para perros pequeños",
+    "precio": 20000,
+    "unidadmedida": "Unidades",
+    "categoria": "Accesorios"
+}
+###
+DELETE http://localhost:8000/productos
+Content-Type: application/json
+
+{
+    "idproducto": 1
+}
+###
+POST http://localhost:8000/productos/sbmasiva
+Content-Type: application/json
+
+
+ [
+    {
+        "cantidad": 15,
+        "descripcion": "Juguete de cuerda para perro",
+        "precio": 12000,
+        "unidadmedida": "lb",
+        "categoria": "Juguetes"
+    },
+    {
+        "cantidad": 8,
+        "descripcion": "Plato doble de acero inoxidable",
+        "precio": 18000,
+        "unidadmedida": "p",
+        "categoria": "Comederos"
+    },
+    {
+        "cantidad": 20,
+        "descripcion": "Cepillo para pelaje de gato",
+        "precio": 9500,
+        "unidadmedida": "lb",
+        "categoria": "Higiene"
+    },
+    {
+        "cantidad": 12,
+        "descripcion": "Cama mediana para perro",
+        "precio": 45000,
+        "unidadmedida": "kg",
+        "categoria": "Descanso"
+    },
+    {
+        "cantidad": 25,
+        "descripcion": "Bolsas biodegradables para desechos",
+        "precio": 7000,
+        "unidadmedida": "und",
+        "categoria": "Higiene"
+    },
+    {
+        "cantidad": 10,
+        "descripcion": "Arnés ajustable para perro pequeño",
+        "precio": 22000,
+        "unidadmedida": "und",
+        "categoria": "Accesorios"
+    },
+    {
+        "cantidad": 30,
+        "descripcion": "Pelota interactiva para gato",
+        "precio": 8500,
+        "unidadmedida": "und",
+        "categoria": "Juguetes"
+    },
+    {
+        "cantidad": 5,
+        "descripcion": "Transportadora rígida mediana",
+        "precio": 65000,
+        "unidadmedida": "und",
+        "categoria": "Transporte"
+    },
+    {
+        "cantidad": 18,
+        "descripcion": "Champú antipulgas para perros",
+        "precio": 16000,
+        "unidadmedida": "und",
+        "categoria": "Higiene"
+    },
+    {
+        "cantidad": 14,
+        "descripcion": "Rascador de cartón para gatos",
+        "precio": 20000,
+        "unidadmedida": "und",
+        "categoria": "Entretenimiento"
+    }
+]
+
+
+
+
