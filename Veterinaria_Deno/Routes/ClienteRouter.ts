@@ -1,14 +1,22 @@
-import { Router} from "../Dependencies/dependencias.ts";
-import { getClientes, getClienteConMascotas, postCliente, putCliente, deleteCliente } from "../Controllers/ClienteControllers.ts";
-
-
+// Routes/ClienteRouter.ts
+import { Router } from "../Dependencies/dependencias.ts";
+import {
+  getClientes,
+  getClienteConMascotas,
+  postCliente,
+  putCliente,
+  deleteCliente,
+} from "../Controllers/ClienteControllers.ts";
 
 const routerCliente = new Router();
 
-routerCliente.get("/cliente",getClientes);
-routerCliente.get("/cliente/con-mascotas/:id", getClienteConMascotas);
-routerCliente.post("/cliente",postCliente);
-routerCliente.put("/cliente",putCliente);
-routerCliente.delete("/cliente",deleteCliente);
+routerCliente
+  .get("/cliente", getClientes)
+  .get("/cliente/con-mascotas/:id", getClienteConMascotas)
+  .post("/cliente", postCliente)
+  .put("/cliente", putCliente)
+  .delete("/cliente", deleteCliente);
+
+
 
 export { routerCliente };

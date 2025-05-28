@@ -9,24 +9,25 @@ POST http://localhost:8000/cliente
 Content-Type: application/json
 
 {
-      "nombre": "Nestor Javier",
-      "apellido": "Riaño Nossa",
-      "email": "haruto.tsukasa@soy.sena.edu.co",
-      "telefono": "3209297401"
+  "nombre": "Nestor Javier",
+  "apellido": "Riaño Nossa",
+  "email": "haruto.tsukasa@soy.sena.edu.co",
+  "telefono": "3209297401",
+  "imagen": "Veterinaria_Deno\\uploads\\gato.jpg"
 }
- 
+
  
 ###
-PUT  http://localhost:8000/cliente
+PUT http://localhost:8000/cliente
 Content-Type: application/json
 
 {
-
-      "idcliente": 14,
-      "nombre": "Gustavo Andres",
-      "apellido": "Aranguren Gonzalez",
-      "email": "gustavo.andres@soy.sena.edu.co",
-      "telefono": "3456576879"
+  "idcliente": 16,
+  "nombre": "Nestor Javier",
+  "apellido": "Riaño Nossa",
+  "email": "haruto.tsukasa@soy.sena.edu.co",
+  "telefono": "3209297401",
+  "imagen": "Veterinaria_Deno\\uploads\\persona.jpeg"
 }
 
 ###
@@ -34,7 +35,7 @@ DELETE http://localhost:8000/cliente
 Content-Type: application/json
 
 {
-    "idcliente": 14
+    "idcliente": 16
 }
 
 
