@@ -20,39 +20,39 @@ export class Cliente {
     }
 
     // ModeloCliente.ts (solo el método corregido)
-public async SeleccionarCliente(): Promise<ClienteData[]> {
-    const result = await conexion.query("SELECT * FROM clientes");
-    console.log("Resultado de la consulta clientes:", result);
-    // Retornamos el resultado directamente asumiendo que es un array de objetos
-    return result as ClienteData[];
-}
-
-
-// Dentro de la clase Cliente
-
-public async obtenerClienteConMascotas(): Promise<{ cliente: Record<string, unknown>, mascotas: Record<string, unknown>[] } | null> {
-    try {
-        if (!this._idCliente) {
-            throw new Error("No se proporcionó un ID de cliente.");
-        }
-
-        const [cliente] = await conexion.query("SELECT * FROM clientes WHERE idcliente = ?", [this._idCliente]);
-
-        if (!cliente) {
-            return null;
-        }
-
-        const mascotas = await conexion.query("SELECT * FROM mascotas WHERE idcliente = ?", [this._idCliente]);
-
-        return {
-            cliente,
-            mascotas
-        };
-    } catch (error) {
-        console.error("Error al obtener cliente con mascotas:", error);
-        throw error;
+    public async SeleccionarCliente(): Promise<ClienteData[]> {
+        const result = await conexion.query("SELECT * FROM clientes");
+        console.log("Resultado de la consulta clientes:", result);
+        // Retornamos el resultado directamente asumiendo que es un array de objetos
+        return result as ClienteData[];
     }
-}
+
+
+    // Dentro de la clase Cliente
+
+    public async obtenerClienteConMascotas(): Promise<{ cliente: Record<string, unknown>, mascotas: Record<string, unknown>[] } | null> {
+        try {
+            if (!this._idCliente) {
+                throw new Error("No se proporcionó un ID de cliente.");
+            }
+
+            const [cliente] = await conexion.query("SELECT * FROM clientes WHERE idcliente = ?", [this._idCliente]);
+
+            if (!cliente) {
+                return null;
+            }
+
+            const mascotas = await conexion.query("SELECT * FROM mascotas WHERE idcliente = ?", [this._idCliente]);
+
+            return {
+                cliente,
+                mascotas
+            };
+        } catch (error) {
+            console.error("Error al obtener cliente con mascotas:", error);
+            throw error;
+        }
+    }
 
 
 
@@ -167,7 +167,7 @@ public async obtenerClienteConMascotas(): Promise<{ cliente: Record<string, unkn
             const result = await conexion.execute('DELETE FROM clientes WHERE idCliente=?', [idCliente]);
 
             if (result && typeof result.affectedRows === "number" && result.affectedRows > 0) {
-                 await conexion.execute("COMMIT");
+                await conexion.execute("COMMIT");
                 console.log("La eliminacion fue exitosa");
 
                 return { success: true, message: `Cliente Eliminado Correctamente. IdAprendiz= ${idCliente}` };
@@ -195,7 +195,7 @@ public async obtenerClienteConMascotas(): Promise<{ cliente: Record<string, unkn
 
 
 }
-    
+
 
 
 
