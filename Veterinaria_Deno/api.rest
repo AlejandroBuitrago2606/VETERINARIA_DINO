@@ -4,17 +4,33 @@ GET http://localhost:8000/cliente
 GET http://localhost:8000/cliente/con-mascotas/4
 
 
-###
+### Crear un cliente con imagen
 POST http://localhost:8000/cliente
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=boundary123
 
-{
-  "nombre": "Nestor Javier",
-  "apellido": "Riaño Nossa",
-  "email": "haruto.tsukasa@soy.sena.edu.co",
-  "telefono": "3209297401",
-  "imagen": "Veterinaria_Deno\\uploads\\gato.jpg"
-}
+--boundary123
+Content-Disposition: form-data; name="nombre"
+
+Nestor Javier
+--boundary123
+Content-Disposition: form-data; name="apellido"
+
+Riaño Nossa
+--boundary123
+Content-Disposition: form-data; name="email"
+
+haruto.tsukasa@soy.sena.edu.co
+--boundary123
+Content-Disposition: form-data; name="telefono"
+
+3209297401
+
+--boundary123
+Content-Disposition: form-data; name="imagen"; filename="gato.jpg"
+Content-Type: image/jpg
+
+< ./uploads/gato.jpg
+--boundary123--
 
  
 ###

@@ -68,7 +68,7 @@ export class Cliente {
             }
 
             const { nombre, apellido, email, telefono, imagen } = this._objCliente;
-            if (!nombre || !apellido || !email || !telefono || !imagen) {
+            if (!nombre || !apellido || !email || !telefono) {
                 throw new Error("Faltan datos del cliente");
             }
 

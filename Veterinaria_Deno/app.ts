@@ -1,28 +1,36 @@
 //deno-lint-ignore-file
 import { Application, oakCors } from "./Dependencies/dependencias.ts";
-import { send} from "https://deno.land/x/oak@v17.1.4/mod.ts";
+import { send } from "https://deno.land/x/oak@v17.1.4/mod.ts";
 import { routerCliente } from "./Routes/ClienteRouter.ts";
 import { routerMascotas } from "./Routes/MascotasRouter.ts";
 import { routerProductos } from "./Routes/ProductoRouter.ts";
 
 const app = new Application();
 
-// Permitir CORS
-app.use(oakCors());
 
-// Servir archivos estáticos desde la carpeta "uploads"
-app.use(async (ctx: any, next: any) => {
-  if (ctx.request.url.pathname.startsWith("/uploads")) {
-    await send(ctx, ctx.request.url.pathname, {
-      root: Deno.cwd(),
+// Middleware para servir archivos estáticos desde /uploads
+app.use(async (ctx:any, next) => {
+  const path = ctx.request.url.pathname;
+  if (path.startsWith("/uploads/")) {
+    await send(ctx, path, {
+      root: Deno.cwd(),         // carpeta de trabajo, donde esté tu carpeta uploads
+      index: "index.html",     // no aplica aquí, pero es obligatorio
     });
   } else {
     await next();
   }
 });
 
+// 1) Permitir peticiones desde cualquier origen
+app.use(oakCors({
+  origin: "*",             // o ["http://localhost:3000"] para más seguridad
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
+
+
 // Rutas de la aplicación
-const routers = [routerCliente, routerMascotas];
+const routers = [routerCliente, routerMascotas, routerProductos];
 routers.forEach((router) => {
   app.use(router.routes());
   app.use(router.allowedMethods());
