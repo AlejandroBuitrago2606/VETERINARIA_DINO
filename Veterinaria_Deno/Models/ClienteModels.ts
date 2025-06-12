@@ -125,7 +125,7 @@ export class Cliente {
 
         const result: any = await conexion.execute(
             'UPDATE clientes SET nombre = ?, apellido = ?, email = ?, imagen = ?, telefono = ? WHERE idcliente = ?',
-            [nombre, apellido, email, imagen, telefono, idCliente] // ✅ orden corregido
+            [nombre, apellido, email, imagen, telefono, idCliente] 
         );
 
         console.log("Se ejecutó la consulta de actualización");
